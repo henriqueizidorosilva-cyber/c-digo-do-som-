@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trilha Tátil - Jogo Acessível</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #111111;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            font-size: 28px;
+            color: #FFD700;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .grupo {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        button {
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 8px;
+            min-width: 210px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.04);
+            opacity: 0.85;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* DADO */
+
+        .dado {
+            background-color: #1976D2;
+        }
+
+        /* MOVIMENTO */
+
+        .movimento {
+            background-color: #2E7D32;
+        }
+
+        /* MATEMÁTICA */
+
+        .matematica {
+            background-color: #EF6C00;
+        }
+
+        /* RESULTADO */
+
+        .acertou {
+            background-color: #00897B;
+        }
+
+        .errou {
+            background-color: #C62828;
+        }
+
+        /* AJUDA */
+
+        .ajuda {
+            background-color: #546E7A;
+        }
+
+        /* FINAL */
+
+        .final {
+            background-color: #8E24AA;
+        }
+
+        /* ÁREA DA MENSAGEM */
+
+        #mensagem {
+            max-width: 850px;
+            min-height: 90px;
+
+            margin: 40px auto 20px;
+
+            padding: 25px;
+
+            background-color: #222222;
+
+            border: 3px solid #555555;
+
+            border-radius: 20px;
+
+            font-size: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        /* STATUS */
+
+        #status {
+            font-size: 18px;
+            color: #BBBBBB;
+            margin-top: 15px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="grupo">
+
+        <h1>🎲 TRILHA TÁTIL</h1>
+
+        <p>
+            Painel de controle de áudio
+        </p>
+
+        <p>
+            A pessoa acompanhante controla os comandos durante o jogo.
+        </p>
+
+
+        <!-- ================================================= -->
+        <!-- DADO -->
+        <!-- ================================================= -->
+
+        <h2>🎲 Resultado do dado</h2>
+
+        <button
+            class="dado"
+            onclick="falarDado(1)">
+            🎲 Dado: 1
+        </button>
+
+        <button
+            class="dado"
+            onclick="falarDado(2)">
+            🎲 Dado: 2
+        </button>
+
+        <button
+            class="dado"
+            onclick="falarDado(3)">
+            🎲 Dado: 3
+        </button>
+
+        <button
+            class="dado"
+            onclick="falarDado(4)">
+            🎲 Dado: 4
+        </button>
+
+        <button
+            class="dado"
+            onclick="falarDado(5)">
+            🎲 Dado: 5
+        </button>
+
+        <button
+            class="dado"
+            onclick="falarDado(6)">
+            🎲 Dado: 6
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- MOVIMENTO -->
+        <!-- ================================================= -->
+
+        <h2>➡️ Movimento</h2>
+
+        <button
+            class="movimento"
+            onclick="falar(
+                'Você caiu na casa avance. Avance mais uma casa.'
+            )">
+            ➡️ Avance uma casa
+        </button>
+
+
+        <button
+            class="movimento"
+            onclick="falar(
+                'Agora é a vez do próximo jogador.'
+            )">
+            🔄 Próximo jogador
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- MATEMÁTICA -->
+        <!-- ================================================= -->
+
+        <h2>🧮 Desafios de matemática</h2>
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Você encontrou um desafio de matemática. Prepare-se para responder.'
+            )">
+            🧮 Desafio
+        </button>
+
+
+        <!-- CONTA 1 -->
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Desafio de matemática. Quanto é três mais quatro?'
+            )">
+            3 + 4
+        </button>
+
+
+        <!-- CONTA 2 -->
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Desafio de matemática. Quanto é cinco mais dois?'
+            )">
+            5 + 2
+        </button>
+
+
+        <!-- CONTA 3 -->
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Desafio de matemática. Quanto é dez menos três?'
+            )">
+            10 - 3
+        </button>
+
+
+        <!-- CONTA 4 -->
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Desafio de matemática. Quanto é quatro mais cinco?'
+            )">
+            4 + 5
+        </button>
+
+
+        <!-- CONTA 5 -->
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Desafio de matemática. Quanto é oito menos dois?'
+            )">
+            8 - 2
+        </button>
+
+
+        <!-- CONTA 6 -->
+
+        <button
+            class="matematica"
+            onclick="falar(
+                'Desafio de matemática. Quanto é dois vezes três?'
+            )">
+            2 vezes 3
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- RESULTADO -->
+        <!-- ================================================= -->
+
+        <h2>🧠 Resultado do desafio</h2>
+
+
+        <button
+            class="acertou"
+            onclick="falar(
+                'Parabéns! Você acertou a continha. Muito bem!'
+            )">
+            ✅ Acertou
+        </button>
+
+
+        <button
+            class="errou"
+            onclick="falar(
+                'Você não acertou dessa vez. Não tem problema. Vamos continuar o jogo.'
+            )">
+            ❌ Errou
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- AJUDA -->
+        <!-- ================================================= -->
+
+        <h2>🆘 Ajuda e instruções</h2>
+
+
+        <button
+            class="ajuda"
+            onclick="falar(
+                'Olá! Vamos aprender a jogar. Coloque sua peça no início da trilha. Jogue o dado e avance o número de casas indicado. Use as mãos para acompanhar a trilha tátil. Algumas casas possuem desafios de matemática e outras fazem você avançar mais uma casa. O objetivo é chegar ao final da trilha. Boa sorte!'
+            )">
+            ▶️ Como jogar
+        </button>
+
+
+        <button
+            class="ajuda"
+            onclick="falar(
+                'Para seguir a trilha, use as mãos para sentir o caminho e identificar as diferentes texturas das casas.'
+            )">
+            🖐️ Como seguir a trilha
+        </button>
+
+
+        <button
+            class="ajuda"
+            onclick="falar(
+                'Você está com dúvida? Peça ajuda ao acompanhante que está controlando o jogo.'
+            )">
+            🆘 Preciso de ajuda
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- FINAL -->
+        <!-- ================================================= -->
+
+        <h2>🏆 Final do jogo</h2>
+
+
+        <button
+            class="final"
+            onclick="falar(
+                'Parabéns! Você chegou ao final da trilha. Você venceu o jogo!'
+            )">
+            🏆 Chegou ao final
+        </button>
+
+
+        <button
+            class="final"
+            onclick="falar(
+                'Parabéns! Você completou toda a trilha. Muito bem!'
+            )">
+            🎉 Parabéns
+        </button>
+
+
+        <!-- ================================================= -->
+        <!-- MENSAGEM -->
+        <!-- ================================================= -->
+
+        <div id="mensagem">
+            Aguardando uma ação...
+        </div>
+
+
+        <div id="status">
+            🔊 Sistema de áudio pronto.
+        </div>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================================== -->
+
+    <script>
+
+
+        /*
+        ========================================================
+        FUNÇÃO PRINCIPAL DE VOZ
+        ========================================================
+        */
+
+        function falar(texto) {
+
+            // Cancela qualquer fala anterior
+            window.speechSynthesis.cancel();
+
+
+            // Cria uma nova fala
+            const fala =
+                new SpeechSynthesisUtterance(texto);
+
+
+            // Define português do Brasil
+            fala.lang = "pt-BR";
+
+
+            // Velocidade da fala
+            fala.rate = 0.9;
+
+
+            // Volume máximo
+            fala.volume = 1;
+
+
+            // Tom da voz
+            fala.pitch = 1;
+
+
+            // Mostra a mensagem na tela
+            document.getElementById("mensagem")
+                .innerText = texto;
+
+
+            // Atualiza o status
+            document.getElementById("status")
+                .innerText = "🔊 Reproduzindo áudio...";
+
+
+            // Quando terminar de falar
+            fala.onend = function() {
+
+                document.getElementById("status")
+                    .innerText = "🔊 Áudio finalizado.";
+
+            };
+
+
+            // Se acontecer algum erro
+            fala.onerror = function() {
+
+                document.getElementById("status")
+                    .innerText =
+                    "⚠️ Não foi possível reproduzir o áudio.";
+
+            };
+
+
+            // Reproduz a fala
+            window.speechSynthesis.speak(fala);
+
+        }
+
+
+        /*
+        ========================================================
+        FUNÇÃO DO DADO
+        ========================================================
+        */
+
+        function falarDado(numero) {
+
+            let mensagem = "";
+
+
+            if (numero === 1) {
+
+                mensagem =
+                    "O dado caiu no número 1. Avance uma casa.";
+
+            }
+
+
+            else if (numero === 2) {
+
+                mensagem =
+                    "O dado caiu no número 2. Avance duas casas.";
+
+            }
+
+
+            else if (numero === 3) {
+
+                mensagem =
+                    "O dado caiu no número 3. Avance três casas.";
+
+            }
+
+
+            else if (numero === 4) {
+
+                mensagem =
+                    "O dado caiu no número 4. Avance quatro casas.";
+p
+            }
+
+
+            else if (numero === 5) {
+
+                mensagem =
+                    "O dado caiu no número 5. Avance cinco casas.";
+
+            }
+
+
+            else if (numero === 6) {
+
+                mensagem =
+                    "O dado caiu no número 6. Avance seis casas.";
+
+            }
+
+
+            // Envia a mensagem para a função de voz
+            falar(mensagem);
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Como o acompanhante vai usar
+Durante a partida, a pessoa que estiver com o celular/computador faz o controle:
+1. A criança joga o dado.
+ Se cair 6, o acompanhante aperta:
+🎲 Dado: 6
+O sistema fala:
+“O dado caiu no número 6. Avance seis casas.”
+2. Se a criança cair em uma casa “Avance”, o acompanhante aperta:
+➡️ Avance uma casa
+E o sistema fala:
+“Você caiu na casa avance. Avance mais uma casa.”
+3. Se cair em uma casa de matemática, o acompanhante escolhe a continha correspondente. Por exemplo:
+3 + 4
+O sistema fala:
+“Desafio de matemática. Quanto é três mais quatro?”
+Depois que a criança responder, o acompanhante aperta “Acertou” ou “Errou”.
+4. Quando chegar ao final, aperta:
+🏆 Chegou ao final
+E o sistema fala:
+“Parabéns! Você chegou ao final da trilha. Você venceu o jogo!”
+Uma coisa importante
+Eu coloquei 6 continhas como exemplo. Se vocês já têm as continhas definidas no trabalho, posso trocar essas seis pelas continhas exatas da trilha de vocês.
+E se vocês tiverem outras casas especiais além de “avance uma casa” e “desafio de matemática”, me diga quais são que eu encaixo todas no código.
+
+
+
+Claro. Vou montar uma versão completa, considerando o que você explicou:
+🎲 dado de 1 a 6;
+➡️ casas de “avance mais uma casa”;
+🧮 casas com desafios de matemática;
+✅ mensagem para quando acertar;
+❌ mensagem para quando errar;
+🆘 botão de ajuda;
+🏁 chegada/final;
+🗣️ o computador/celular fala tudo em português do Brasil;
+👤 a pessoa ao lado controla os botões conforme a criança joga.
+Vocês podem salvar o código abaixo como index.html e abrir no navegador.
+
